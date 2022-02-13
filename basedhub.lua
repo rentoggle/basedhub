@@ -2,8 +2,6 @@ local Players = game:GetService("Players")
 local Flux = loadstring(game:HttpGet"https://raw.githubusercontent.com/dawid-scripts/UI-Libs/main/fluxlib.txt")()
 
 local user = game.Players.LocalPlayer
-local chr = user.Character
-local humroot = chr.HumanoidRootPart
 _G.closeBind = Enum.KeyCode.RightShift
 _G.chosenColor = Color3.fromRGB(200, 0, 25)
 _G.typedUser = ""
@@ -15,6 +13,7 @@ local win = Flux:Window("BasedHUB", "Welcome, "..user.Name.."!", _G.chosenColor,
 local tab1 = win:Tab("Credits", "http://www.roblox.com/asset/?id=6022668946")
 tab1:Label("GUI Made by ren")
 tab1:Label("libUi used was Flux")
+tab1:Label("Press RightShift to close/open the GUI")
 tab1:Line()
 tab1:Button("Notification Test", "Notification System can break commonly, check if it's working", function()
     Flux:Notification("Notification system is working", "Confirm")
@@ -120,6 +119,8 @@ if game.PlaceId == 155615604 then
     end)
 
     plife:Dropdown("Teleport", {"Criminal Spawn", "Prison Yard", "Prison Cells", "Cafteria", "Gas Station", "Armory+", "Neighbourhood"}, function(t)
+        local chr = user.Character
+        local humroot = chr.HumanoidRootPart
         if t == "Prison Cells" then
             humroot.CFrame = CFrame.new(915.384, 99.99, 2442.7)
         elseif t == "Criminal Spawn" then
